@@ -19,7 +19,9 @@ public class MarkdownParse {
                 break;
             }
             int closeParen = markdown.indexOf(")", openParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            if (!markdown.substring(nextOpenBracket+1, nextCloseBracket).equals("Image")) {
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }
             currentIndex = closeParen + 1;
             /*
             System.out.println("next open bracket: " + nextOpenBracket);
